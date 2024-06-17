@@ -1,92 +1,93 @@
 ---
-id: operatingsystems-linux-nrpe4
-title: Linux NRPE4
+id: operatingsystems-linux-telegraf-agent
+title: Linux Telegraf Agent
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-## Pack assets
+## Contenu du pack
 
-### Templates
+### Modèles
 
-The Monitoring Connector **Linux NRPE4** brings a host template:
+Le connecteur de supervision **Linux Telegraf Agent** apporte un modèle d'hôte :
 
-* **OS-Linux-NRPE4-custom**
+* **OS-Linux-Telegraf-Agent-custom**
 
-The connector brings the following service templates (sorted by the host template they are attached to):
+Le connecteur apporte les modèles de service suivants
+(classés selon le modèle d'hôte auquel ils sont rattachés) :
 
 <Tabs groupId="sync">
-<TabItem value="OS-Linux-NRPE4-custom" label="OS-Linux-NRPE4-custom">
+<TabItem value="OS-Linux-Telegraf-Agent-custom" label="OS-Linux-Telegraf-Agent-custom">
 
-| Service Alias | Service Template             | Service Description                                                                                                                                |
-|:--------------|:-----------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|
-| Cpu           | OS-Linux-Cpu-NRPE4-custom    | Check the rate of utilization of CPUs for the machine. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPUs |
-| Load          | OS-Linux-Load-NRPE4-custom   | Check the server load average                                                                                                                      |
-| Memory        | OS-Linux-Memory-NRPE4-custom | Check the rate of the utilization of memory                                                                                                        |
-| Ntp           | OS-Linux-Ntp-NRPE4-custom    | Check system time synchronization with NTP server                                                                                                  |
-| Protocol-NRPE4 | OS-Linux-Protocol-NRPE4-custom | Control test to make sure the NRPE v4 protocol is configured correctly.    |
-| Swap          | OS-Linux-Swap-NRPE4-custom   | Check virtual memory usage                                                                                                                         |
-| Uptime        | OS-Linux-Uptime-NRPE4-custom | Time since the server has been working and available                                                                                               |
+| Alias                   | Modèle de service                       | Description                                                                                                                                                               |
+|:------------------------|:----------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Cpu                     | OS-Linux-Cpu-Telegraf-Agent-custom      | Contrôle du taux d'utilisation CPU de la machine. Ce contrôle pourra remonter la moyenne du taux d'utilisation des CPU ainsi que le taux par CPU pour les CPU multi-coeur |
+| Load                    | OS-Linux-Load-Telegraf-Agent-custom     | Contrôle de la charge serveur                                                                                                                                             |
+| Memory                  | OS-Linux-Memory-Telegraf-Agent-custom   | Contrôle du taux d'utilisation de la mémoire vive                                                                                                                         |
+| Ntp                     | OS-Linux-Ntp-Telegraf-Agent-custom      | Contrôle la synchronisation du système avec un serveur NTP                                                                                                                |
+| Protocol-Telegraf-Agent | OS-Linux-Protocol-Telegraf-Agent-custom | Contrôle de la bonne configuration du protocole NRPE v4.                                                                                                                  |
+| Swap                    | OS-Linux-Swap-Telegraf-Agent-custom     | Contrôle du taux d'utilisation de la mémoire virtuelle                                                                                                                    |
+| Uptime                  | OS-Linux-Uptime-Telegraf-Agent-custom   | Durée depuis laquelle le serveur tourne sans interruption                                                                                                                 |
 
-> The services listed above are created automatically when the **OS-Linux-NRPE4-custom** host template is used.
+> Les services listés ci-dessus sont créés automatiquement lorsque le modèle d'hôte **OS-Linux-Telegraf-Agent-custom** est utilisé.
 
 </TabItem>
-<TabItem value="Not attached to a host template" label="Not attached to a host template">
+<TabItem value="Non rattachés à un modèle d'hôte" label="Non rattachés à un modèle d'hôte">
 
-| Service Alias       | Service Template                          | Service Description                                                                                                                                         | Discovery  |
-|:--------------------|:------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------:|
-| Cmd-Generic         | OS-Linux-Cmd-Generic-NRPE4-custom         | Check exit code for Linux commands                                                                                                                           |            |
-| Connections-Generic | OS-Linux-Connections-Generic-NRPE4-custom | Check TCP/UDP connections                                                                                                                                   |            |
-| Cpu-Detailed        | OS-Linux-Cpu-Detailed-NRPE4-custom        | Check the detailed rate of utilization of CPUs for the machine. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPUs |            |
-| Disk-IO             | OS-Linux-Disk-IO-NRPE4-custom             | Check I/O counters of disks                                                                                                                                 |            |
-| Disks               | OS-Linux-Disks-NRPE4-custom               | Check the rate of free space on disks. For each check the mount point of disks will appear                                                                 | X          |
-| File-Date-Generic   | OS-Linux-File-Date-Generic-NRPE4-custom   | Check file or/and directory modification/creation/access times                                                                                              |            |
-| File-Size-Generic   | OS-Linux-File-Size-Generic-NRPE4-custom   | Check file or/and directory sizes                                                                                                                           |            |
-| Inodes              | OS-Linux-Inodes-NRPE4-custom              | Check the rate of free inodes on disks                                                                                                                      |            |
-| Is-File-Generic     | OS-Linux-Is-File-Generic-NRPE4-custom     | Check if file 'xxx' is present                                                                                                                              |            |
-| Is-Not-File-Generic | OS-Linux-Is-Not-File-Generic-NRPE4-custom | Check if file 'xxx' is not present                                                                                                                          |            |
-| Open-Files          | OS-Linux-Open-Files-NRPE4-custom          | Check file or/and directory modification/creation/access times                                                                                              |            |
-| Packet-Errors       | OS-Linux-Packet-Errors-NRPE4-custom       | Check packets in error/discarded from multiple network interfaces                                                                                             |            |
-| Pending-Updates     | OS-Linux-Pending-Updates-NRPE4-custom     | Check systemd services status                                                                                                                               |            |
-| Process-Generic     | OS-Linux-Process-Generic-NRPE4-custom     | Check Linux processes                                                                                                                                       |            |
-| Systemd-Journal     | OS-Linux-Systemd-Journal-NRPE4-custom     | Count journal entries using the `journalctl` command.          |            |
-| Systemd-Sc-Status   | OS-Linux-Systemd-Sc-Status-NRPE4-custom   | Check systemd services status                                                                                                                               |            |
-| Traffic             | OS-Linux-Traffic-NRPE4-custom             | Check the bandwidth of interfaces.                                                                   | X          |
+| Alias               | Modèle de service                                  | Description                                                                                                                                                                           | Découverte |
+|:--------------------|:---------------------------------------------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------:|
+| Cmd-Generic         | OS-Linux-Cmd-Generic-Telegraf-Agent-custom         | Permet de vérifier le code retour de commandes Linux                                                                                                                                  |            |
+| Connections-Generic | OS-Linux-Connections-Generic-Telegraf-Agent-custom | Contrôle les connexions TCP/UDP                                                                                                                                                       |            |
+| Cpu-Detailed        | OS-Linux-Cpu-Detailed-Telegraf-Agent-custom        | Contrôle du taux d'utilisation détaillé du CPU de la machine. Ce contrôle pourra remonter la moyenne du taux d'utilisation des CPU ainsi que le taux par CPU pour les CPU multi-coeur |            |
+| Disk-IO             | OS-Linux-Disk-IO-Telegraf-Agent-custom             | Contrôle les compteurs I/O des disques                                                                                                                                                |            |
+| Disks               | OS-Linux-Disks-Telegraf-Agent-custom               | Contrôle du taux d'espace libre disponible des disques. Pour chaque contrôle apparaîtra le point de montage des disques                                                               |     X      |
+| File-Date-Generic   | OS-Linux-File-Date-Generic-Telegraf-Agent-custom   | Permet de vérifier la date de modification/création/accès/... de fichiers et/ou répertoires                                                                                           |            |
+| File-Size-Generic   | OS-Linux-File-Size-Generic-Telegraf-Agent-custom   | Permet de vérifier la taille de fichiers et/ou répertoires                                                                                                                            |            |
+| Inodes              | OS-Linux-Inodes-Telegraf-Agent-custom              | Contrôle du taux d'inodes disponible des disques                                                                                                                                      |            |
+| Is-File-Generic     | OS-Linux-Is-File-Generic-Telegraf-Agent-custom     | Permet de vérifier si le fichier 'xxx' est présent                                                                                                                                    |            |
+| Is-Not-File-Generic | OS-Linux-Is-Not-File-Generic-Telegraf-Agent-custom | Permet de vérifier si le fichier 'xxx' n'est pas présent                                                                                                                              |            |
+| Open-Files          | OS-Linux-Open-Files-Telegraf-Agent-custom          | Permet de vérifier le nombre de modification/création/accès/... de fichiers et/ou répertoires                                                                                         |            |
+| Packet-Errors       | OS-Linux-Packet-Errors-Telegraf-Agent-custom       | Contrôle le pourcentage de paquets en erreur/écartés de plusieurs interfaces réseau                                                                                                   |            |
+| Pending-Updates     | OS-Linux-Pending-Updates-Telegraf-Agent-custom     | Contrôle le statut des services systemd                                                                                                                                               |            |
+| Process-Generic     | OS-Linux-Process-Generic-Telegraf-Agent-custom     | Contrôle permettant de vérifier des processus Linux                                                                                                                                   |            |
+| Systemd-Journal     | OS-Linux-Systemd-Journal-Telegraf-Agent-custom     | Compte les entrées de journal grâce à la commande `journalctl`                                                                                                                        |            |
+| Systemd-Sc-Status   | OS-Linux-Systemd-Sc-Status-Telegraf-Agent-custom   | Contrôle le statut des services systemd                                                                                                                                               |            |
+| Traffic             | OS-Linux-Traffic-Telegraf-Agent-custom             | Contrôle de la bande passante des interfaces. Pour chaque contrôle apparaîtra le nom de l'interface                                                                                   |     X      |
 
-> The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
+> Les services listés ci-dessus ne sont pas créés automatiquement lorsqu'un modèle d'hôte est appliqué. Pour les utiliser, [créez un service manuellement](/docs/monitoring/basic-objects/services) et appliquez le modèle de service souhaité.
 
-> If **Discovery** is checked, it means a service discovery rule exists for this service template.
+> Si la case **Découverte** est cochée, cela signifie qu'une règle de découverte de service existe pour ce service.
 
 </TabItem>
 </Tabs>
 
-### Discovery rules
+### Règles de découverte
 
-#### Service discovery
+#### Découverte de services
 
-| Rule name                   | Description                                                   |
-|:----------------------------|:--------------------------------------------------------------|
-| OS-Linux-NRPE4-Disk-Name    | Discover the disk partitions and monitor space occupation     |
-| OS-Linux-NRPE4-Traffic-Name | Discover network interfaces and monitor bandwidth utilization |
+| Nom de la règle                      | Description                                                            |
+|:-------------------------------------|:-----------------------------------------------------------------------|
+| OS-Linux-Telegraf-Agent-Disk-Name    | Découvre les partitions disque et supervise l'occupation de l'espace   |
+| OS-Linux-Telegraf-Agent-Traffic-Name | Découvre les interfaces réseau et supervise le statut et l'utilisation |
 
-More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
-and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
+Rendez-vous sur la [documentation dédiée](/docs/monitoring/discovery/services-discovery)
+pour en savoir plus sur la découverte automatique de services et sa [planification](/docs/monitoring/discovery/services-discovery/#règles-de-découverte).
 
-### Collected metrics & status
+### Métriques & statuts collectés
 
-Here is the list of services for this connector, detailing all metrics linked to each service.
+Voici le tableau des services pour ce connecteur, détaillant les métriques rattachées à chaque service.
 
 <Tabs groupId="sync">
 <TabItem value="Cmd-Generic" label="Cmd-Generic">
 
-| Metric name             | Unit  |
+| Métrique                | Unité |
 |:------------------------|:------|
 | command.exit.code.count | count |
 
 </TabItem>
 <TabItem value="Connections-Generic" label="Connections-Generic">
 
-| Metric name      | Unit  |
+| Métrique         | Unité |
 |:-----------------|:------|
 | total            | count |
 | con\_synSent     | count |
@@ -104,7 +105,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Cpu" label="Cpu">
 
-| Metric name                                | Unit  |
+| Métrique                                   | Unité |
 |:-------------------------------------------|:------|
 | cpu.utilization.percentage                 | %     |
 | *cpu_core*#core.cpu.utilization.percentage | %     |
@@ -112,7 +113,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Cpu-Detailed" label="Cpu-Detailed">
 
-| Metric name                     | Unit  |
+| Métrique                        | Unité |
 |:--------------------------------|:------|
 | core.cpu.utilization.percentage | %     |
 | cpu.utilization.percentage      | %     |
@@ -120,7 +121,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Disk-IO" label="Disk-IO">
 
-| Metric name                                   | Unit  |
+| Métrique                                      | Unité |
 |:----------------------------------------------|:------|
 | *device*#device.io.read.usage.bytespersecond  | B/s   |
 | *device*#device.io.write.usage.bytespersecond | B/s   |
@@ -129,26 +130,26 @@ Here is the list of services for this connector, detailing all metrics linked to
 | *device*#device.io.servicetime.count          | count |
 | *device*#device.io.utils.percentage           | %     |
 
-> To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
+> Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
 
 </TabItem>
 <TabItem value="Disks" label="Disks">
 
-| Metric name                           | Unit  |
+| Métrique                              | Unité |
 |:--------------------------------------|:------|
 | *disk_name*#storage.space.usage.bytes | B     |
 
 </TabItem>
 <TabItem value="File-Date-Generic" label="File-Date-Generic">
 
-| Metric name             | Unit  |
+| Métrique                | Unité |
 |:------------------------|:------|
 | file.mtime.last.seconds | s     |
 
 </TabItem>
 <TabItem value="File-Size-Generic" label="File-Size-Generic">
 
-| Metric name      | Unit  |
+| Métrique         | Unité |
 |:-----------------|:------|
 | file.size.bytes  | B     |
 | files.size.bytes | B     |
@@ -156,28 +157,28 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Inodes" label="Inodes">
 
-| Metric name                              | Unit  |
+| Métrique                                 | Unité |
 |:-----------------------------------------|:------|
 | *inodes*#storage.inodes.usage.percentage | %     |
 
 </TabItem>
 <TabItem value="Is-File-Generic" label="Is-File-Generic">
 
-| Metric name             | Unit  |
+| Métrique                | Unité |
 |:------------------------|:------|
 | command.exit.code.count | count |
 
 </TabItem>
 <TabItem value="Is-Not-File-Generic" label="Is-Not-File-Generic">
 
-| Metric name             | Unit  |
+| Métrique                | Unité |
 |:------------------------|:------|
 | command.exit.code.count | count |
 
 </TabItem>
 <TabItem value="Load" label="Load">
 
-| Metric name  | Unit  |
+| Métrique     | Unité |
 |:-------------|:------|
 | avg\_load1   | N/A   |
 | avg\_load5   | N/A   |
@@ -189,7 +190,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Memory" label="Memory">
 
-| Metric name                 | Unit  |
+| Métrique                    | Unité |
 |:----------------------------|:------|
 | memory.usage.bytes          | B     |
 | memory.free.bytes           | B     |
@@ -206,7 +207,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Ntp" label="Ntp">
 
-| Metric name                           | Unit  |
+| Métrique                              | Unité |
 |:--------------------------------------|:------|
 | peers.detected.count                  | count |
 | *peers*#status                        | N/A   |
@@ -216,14 +217,14 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Open-Files" label="Open-Files">
 
-| Metric name             | Unit  |
+| Métrique                | Unité |
 |:------------------------|:------|
 | system.files.open.count | count |
 
 </TabItem>
 <TabItem value="Packet-Errors" label="Packet-Errors">
 
-| Metric name                                          | Unit  |
+| Métrique                                             | Unité |
 |:-----------------------------------------------------|:------|
 | *interface*#status                                   | N/A   |
 | *interface*#interface.packets.in.discard.percentage  | %     |
@@ -234,7 +235,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Pending-Updates" label="Pending-Updates">
 
-| Metric name                  | Unit  |
+| Métrique                     | Unité |
 |:-----------------------------|:------|
 | pending.updates.total.count  | count |
 | security.updates.total.count | count |
@@ -243,7 +244,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 </TabItem>
 <TabItem value="Process-Generic" label="Process-Generic">
 
-| Metric name                                   | Unit  |
+| Métrique                                      | Unité |
 |:----------------------------------------------|:------|
 | *processes*#time                              | N/A   |
 | *processes*#memory-usage                      | N/A   |
@@ -257,32 +258,32 @@ Here is the list of services for this connector, detailing all metrics linked to
 | processes.disks.io.write.usage.bytespersecond | B/s   |
 
 </TabItem>
-<TabItem value="Protocol-NRPE4" label="Protocol-NRPE4">
+<TabItem value="Protocol-Telegraf-Agent" label="Protocol-Telegraf-Agent">
 
 Pas de métrique pour ce service.
 
 </TabItem>
 <TabItem value="Swap" label="Swap">
 
-| Metric name           | Unit  |
+| Métrique              | Unité |
 |:----------------------|:------|
 | swap.usage.bytes      | B     |
 | swap.free.bytes       | B     |
 | swap.usage.percentage | %     |
 
-> To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
+> Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
 
 </TabItem>
 <TabItem value="Systemd-Journal" label="Systemd-Journal">
 
-| Metric name           | Unit  |
+| Métrique              | Unité |
 |:----------------------|:------|
 | journal.entries.count | count |
 
 </TabItem>
 <TabItem value="Systemd-Sc-Status" label="Systemd-Sc-Status">
 
-| Metric name                    | Unit  |
+| Métrique                       | Unité |
 |:-------------------------------|:------|
 | systemd.services.running.count | count |
 | systemd.services.failed.count  | count |
@@ -290,12 +291,12 @@ Pas de métrique pour ce service.
 | systemd.services.exited.count  | count |
 | *sc*#status                    | N/A   |
 
-> To obtain this new metric format, include **--use-new-perfdata** in the **EXTRAOPTIONS** service macro.
+> Pour obtenir ce nouveau format de métrique, incluez la valeur **--use-new-perfdata** dans la macro de service **EXTRAOPTIONS**.
 
 </TabItem>
 <TabItem value="Traffic" label="Traffic">
 
-| Metric name                                     | Unit  |
+| Métrique                                        | Unité |
 |:------------------------------------------------|:------|
 | *interface*#status                              | N/A   |
 | *interface*#interface.traffic.in.bitspersecond  | b/s   |
@@ -304,78 +305,110 @@ Pas de métrique pour ce service.
 </TabItem>
 <TabItem value="Uptime" label="Uptime">
 
-| Metric name           | Unit  |
+| Métrique              | Unité |
 |:----------------------|:------|
 | system.uptime.seconds | s     |
 
 </TabItem>
 </Tabs>
 
-## Prerequisites
+## Prérequis
 
-The prerequisites below have to be applied to the Linux servers to be monitored.
+Les prérequis ci-dessous doivent être appliqués sur les serveurs Linux à superviser pour que le connecteur de supervision puisse fonctionner.
 
-### Network flow
+### Flux réseau
 
-The NRPE protocol uses the TCP port 5666.
+Le port TCP par défaut pour le protocole NRPE est le port 5666.
 
-| Source | Destination    | Protocole | Port |
-| ------ | -------------- | --------- | ---- |
-| Poller | Hôte supervisé | TCP       | 5666 |
+| Source         | Destination | Protocole | Port | Objet                                     |
+|----------------|-------------|-----------|------|-------------------------------------------|
+| Hôte supervisé | Collecteur  | TCP       | 1443 | Obtention de la configuration de Telegraf. |
+| Hôte supervisé | Collecteur  | TCP       | 4317 | Envoi des données au format OpenTelemetry. |
 
-### System prerequisites
+### Prérequis système
+
+> Les prérequis ci-dessous concerne les hôtes supervisés et nécessitent que les prérequis concernant le collecteur soient
+> déjà appliqués. En particulier la mise en place du serveur de configuration embarqué dans Centreon Engine.
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
-1. Install the agent.
+1. Installer les dépendances.
 
 ```bash
 dnf -y install epel-release
-dnf -y install nrpe
 dnf -y config-manager --set-enabled 'powertools'
-mkdir -p /var/lib/centreon/centplugins/
-chown nrpe: /var/lib/centreon/centplugins/
 ```
 
-2. Change the IP address for the `allowed_hosts` parameter in **/etc/nagios/nrpe.cfg** (replace `POLLER_IP_ADDRESS` with the IP address of the poller that will monitor the host).
+2. Acceptez le certificat du collecteur.
+
+> Remplacez `mypoller.local` par le FQDN du collecteur. Telegraf refusera le certificat si l'on accède au serveur de
+> configuration via son adresse IP.
 
 ```bash
-sed -i 's/dont_blame_nrpe=0/dont_blame_nrpe=1/'  /etc/nagios/nrpe.cfg
-sed -i 's/allowed_hosts=127.0.0.1,::1/allowed_hosts=POLLER_IP_ADDRESS/' /etc/nagios/nrpe.cfg
+openssl s_client -connect mypoller.local:1443 2>/dev/null </dev/null |  sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' >  /etc/pki/ca-trust/source/anchors/mypoller.local.crt
+update-ca-trust
 ```
 
-3. Add the definition of the `check_centreon_plugins` command:
+Vérifiez que cette requête fonctionne :
 
 ```bash
-cat >/etc/nrpe.d/centreon-commands.cfg <<'EOF'
-command[check_centreon_plugins]=/usr/lib/centreon/plugins/centreon_linux_local.pl --plugin=$ARG1$ --mode=$ARG2$ $ARG3$
+curl https://mypoller.local:1443/engine?host=$HOSTNAME
+```
+
+3. Installer l'agent Telegraf.
+
+Cette partie est extraite de la [documentation officielle de Telegraf](https://docs.influxdata.com/telegraf/v1/install/?t=RedHat+%26amp%3B+CentOS).
+
+```bash
+cat > /etc/yum.repos.d/influxdb.repo <<'EOF'
+[influxdb]
+name = InfluxData Repository - Stable
+baseurl = https://repos.influxdata.com/stable/$basearch/main
+enabled = 1
+gpgcheck = 1
+gpgkey = https://repos.influxdata.com/influxdata-archive_compat.key
+EOF
+
+yum install -y telegraf
+```
+
+> Au cours de nos tests nous avons constaté une erreur dans le fichier `/usr/lib/systemd/system/telegraf.service` la ligne :
+
+```
+EnvironmentFile=-/etc/default/telegraf
+```
+
+Doit être remplacée par :
+
+```
+EnvironmentFile=-/etc/sysconfig/telegraf
+```
+
+Puis lancez la commande suivante pour prendre en compte ce changement :
+
+```bash
+systemctl daemon-reload
+```
+
+4. Paramétrez l'agent Telegraf pour qu'il récupère sa configuration auprès du collecteur.
+
+```bash
+cat > /etc/sysconfig/telegraf <<EOF
+TELEGRAF_OPTS='--config-url-watch-interval 120s --config=https://mypoller.local:1443/engine?host=$HOSTNAME'
 EOF
 ```
 
-4. Restart the service to apply the new configuration:
+> Si le nom de l'hôte à superviser ne correspond pas à la valeur de la variable `$HOSTNAME` il vous faudra personnaliser ce fichier.
+
+5. Pour permettre la supervision de **systemd-journal**, lancez les commandes suivantes :
 
 ```bash
-systemctl restart nrpe
-systemctl enable nrpe
+usermod -a -G systemd-journal telegraf
+systemctl restart telegraf
 ```
 
-5. To monitor **systemd-journal**, run the following commands:
-
-```bash
-usermod -a -G systemd-journal nrpe
-systemctl restart nrpe
-```
-
-6. To monitor **systemctl-sc** and **traffic**, run the following commands:
-
-```bash
-setenforce Permissive
-sed -i 's/SELINUX=enforcing/SELINUX=disabled/' /etc/selinux/config
-reboot
-```
-
-7. Add the Centreon plugins' repository:
+6. Ajoutez le dépôt des plugins Centreon :
 
 ```bash
 cat >/etc/yum.repos.d/centreon-plugins.repo <<'EOF'
@@ -413,23 +446,23 @@ module_hotfixes=1
 
 [centreon-plugins-unstable]
 name=Centreon plugins repository. (UNSUPPORTED)
-baseurl=https://packages.centreon.com/rpm-plugins/el8/unstable/$basearch/ 
-enabled=0 
-gpgcheck=1 
-gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES 
-module_hotfixes=1 
- 
-[centreon-plugins-unstable-noarch] 
-name=Centreon plugins repository. (UNSUPPORTED) 
-baseurl=https://packages.centreon.com/rpm-plugins/el8/unstable/noarch/ 
-enabled=0 
-gpgcheck=1 
-gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES 
-module_hotfixes=1 
-EOF 
+baseurl=https://packages.centreon.com/rpm-plugins/el8/unstable/$basearch/
+enabled=0
+gpgcheck=1
+gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
+module_hotfixes=1
+
+[centreon-plugins-unstable-noarch]
+name=Centreon plugins repository. (UNSUPPORTED)
+baseurl=https://packages.centreon.com/rpm-plugins/el8/unstable/noarch/
+enabled=0
+gpgcheck=1
+gpgkey=https://yum-gpg.centreon.com/RPM-GPG-KEY-CES
+module_hotfixes=1
+EOF
 ```
 
-8. Install the plugin :
+8. Installez le plugin :
 
 ```bash
 dnf install -y centreon-plugin-Operatingsystems-Linux-Local.noarch
@@ -438,45 +471,83 @@ dnf install -y centreon-plugin-Operatingsystems-Linux-Local.noarch
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
-1. Install the agent.
+1. Installer les dépendances.
 
 ```bash
-dnf -y install nrpe
-dnf -y config-manager --set-enabled 'crb'
-mkdir -p /var/lib/centreon/centplugins/
-chown nrpe: /var/lib/centreon/centplugins/
+dnf -y install epel-release
+dnf -y config-manager --set-enabled 'powertools'
 ```
 
-2. Change the IP address for the`allowed_hosts parameter in` **/etc/nagios/nrpe.cfg** (replace `POLLER_IP_ADDRESS` with the IP address of the poller that will monitor the host).
+2. Acceptez le certificat du collecteur.
 
-```bash 
-sed -i 's/dont_blame_nrpe=0/dont_blame_nrpe=1/' /etc/nagios/nrpe.cfg 
-sed -i 's/allowed_hosts=127.0.0.1,::1/allowed_hosts=POLLER_IP_ADDRESS/' /etc/nagios/nrpe.cfg 
-``` 
+> Remplacez `mypoller.local` par le FQDN du collecteur. Telegraf refusera le certificat si l'on accède au serveur de
+> configuration via son adresse IP.
 
-3. Add the definition of the `check_centreon_plugins` command:
- 
 ```bash
-cat >/etc/nrpe.d/centreon-commands.cfg <<'EOF'
-command[check_centreon_plugins]=/usr/lib/centreon/plugins/centreon_linux_local.pl --plugin=$ARG1$ --mode=$ARG2$ $ARG3$
+openssl s_client -connect mypoller.local:1443 2>/dev/null </dev/null |  sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' >  /etc/pki/ca-trust/source/anchors/mypoller.local.crt
+update-ca-trust
+```
+
+Vérifiez que cette requête fonctionne :
+
+```bash
+curl https://mypoller.local:1443/engine?host=$(hostname -s)
+```
+
+3. Installer l'agent Telegraf.
+
+
+Doc officielle https://docs.influxdata.com/telegraf/v1/install/?t=RedHat+%26amp%3B+CentOS
+
+```bash
+cat > /etc/yum.repos.d/influxdb.repo <<'EOF'
+[influxdb]
+name = InfluxData Repository - Stable
+baseurl = https://repos.influxdata.com/stable/$basearch/main
+enabled = 1
+gpgcheck = 1
+gpgkey = https://repos.influxdata.com/influxdata-archive_compat.key
+EOF
+
+yum install -y telegraf
+```
+
+> Au cours de nos tests nous avons constaté une erreur dans le fichier `/usr/lib/systemd/system/telegraf.service` la ligne :
+
+```
+EnvironmentFile=-/etc/default/telegraf
+```
+
+Doit être remplacée par :
+
+```
+EnvironmentFile=-/etc/sysconfig/telegraf
+```
+
+Puis lancez la commande suivante pour prendre en compte ce changement :
+
+```bash
+systemctl daemon-reload
+```
+
+4. Paramétrez l'agent Telegraf pour qu'il récupère sa configuration auprès du collecteur.
+
+```bash
+cat > /etc/sysconfig/telegraf <<EOF
+TELEGRAF_OPTS='--config-url-watch-interval 120s --config=https://mypoller.local:1443/engine?host=$HOSTNAME'
 EOF
 ```
 
-4. Restart the service to apply the new configuration:
+> Si le nom de l'hôte à superviser ne correspond pas à la valeur de la variable `$HOSTNAME` il vous faudra personnaliser ce fichier.
+
+5. Pour permettre la supervision de **systemd-journal**, lancez les commandes suivantes :
 
 ```bash
-systemctl restart nrpe
-systemctl enable nrpe
+usermod -a -G systemd-journal telegraf
+systemctl restart telegraf
 ```
 
-5. To monitor **systemd-journal**, run the following commands:
-
-```bash
-usermod -a -G systemd-journal nrpe
-systemctl restart nrpe
-```
-
-6. Add the Centreon plugins' repository:
+6. Ajoutez le dépôt des plugins Centreon :
 
 ```bash
 cat >/etc/yum.repos.d/centreon-plugins.repo <<'EOF'
@@ -530,113 +601,114 @@ module_hotfixes=1
 EOF
 ```
 
-7. Install the plugin :
+7. Installez le plugin :
 
 ```bash
 dnf install -y centreon-plugin-Operatingsystems-Linux-Local.noarch
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
-1. Add the Centreon plugins' repository:
+1. Ajoutez le dépôt des plugins Centreon.
 
 ```bash
 wget -O- https://apt-key.centreon.com | gpg --dearmor | tee /etc/apt/trusted.gpg.d/centreon.gpg > /dev/null 2>&1
-echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/centreon-plugins.list
-apt update
+echo "deb https://packages.centreon.com/apt-plugins-stable/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/centreon-plugins.list
+apt-get update
 ```
 
-At this point, if you get this error:
+À ce stade, si vous obtenez cette erreur :
 
 ```text
 W: GPG error: https://packages.sury.org/php bullseye InRelease: The following signatures couldn't be verified because the public key is not available: NO_PUBKEY B188E2B695BD4743
 E: The repository 'https://packages.sury.org/php bullseye InRelease' is not signed.
 ```
 
-You may solve it by running:
+Vous pouvez la régler de cette façon :
 
 ```bash
-apt-key adv --fetch-keys 'https://packages.sury.org/php/apt.gpg' > /dev/null 2>&1
-apt update
+wget -O- https://packages.sury.org/php/apt.gpg | gpg --dearmor | tee /etc/apt/trusted.gpg.d/php.gpg  > /dev/null 2>&1
+apt-get update
 ```
 
-2. Install the agent and the plugin:
+2. Installez l'agent et le plugin :
 
 ```bash
-apt -y install centreon-nrpe4-daemon centreon-plugin-operatingsystems-linux-local
+apt-get -y install centreon-nrpe4-daemon centreon-plugin-operatingsystems-linux-local
 ```
 
-3. Change the IP address for the `allowed_hosts` parameter in **/etc/nagios/nrpe.cfg** (replace `POLLER_IP_ADDRESS` with the IP address of the poller that will monitor the host).
+3. Modifiez l'adresse IP pour le paramètre allowed_hosts dans `/etc/nagios/nrpe.cfg` (remplacez `POLLER_IP_ADDRESS` 
+par l'adresse IP du collecteur qui en fera la supervision).
 
 ```bash
 sed -i 's/allowed_hosts=127.0.0.1,::1/allowed_hosts=POLLER_IP_ADDRESS/' /etc/nrpe/centreon-nrpe4.cfg
 ```
 
-4. Restart the service to apply the new configuration:
+4. Redémarrez le service pour que le changement soit pris en compte.
 
 ```bash
 systemctl restart centreon-nrpe4.service
 systemctl enable centreon-nrpe4.service
 ```
 
-5. To monitor **systemd-journal**, run the following commands:
+5. Pour permettre la supervision de **systemd-journal**, lancez les commandes suivantes :
 
 ```bash
-usermod -a -G systemd-journal centreon-engine
-systemctl restart centreon-nrpe4.service
+usermod -a -G systemd-journal telegraf
+systemctl restart telegraf.service
 ```
 
 </TabItem>
 </Tabs>
 
-## Installing the monitoring connector
+## Installer le connecteur de supervision
 
 ### Pack
 
-1. If the platform uses an *online* license, you can skip the package installation
-instruction below as it is not required to have the connector displayed within the
-**Configuration > Monitoring Connector Manager** menu.
-If the platform uses an *offline* license, install the package on the **central server**
-with the command corresponding to the operating system's package manager:
+1. Si la plateforme est configurée avec une licence *online*, l'installation d'un paquet
+n'est pas requise pour voir apparaître le connecteur dans le menu **Configuration > Gestionnaire de connecteurs de supervision**.
+Au contraire, si la plateforme utilise une licence *offline*, installez le paquet
+sur le **serveur central** via la commande correspondant au gestionnaire de paquets
+associé à sa distribution :
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-dnf install centreon-pack-operatingsystems-linux-nrpe4
+dnf install centreon-pack-operatingsystems-linux-telegraf-agent
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-dnf install centreon-pack-operatingsystems-linux-nrpe4
+dnf install centreon-pack-operatingsystems-linux-telegraf-agent
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
-apt install centreon-pack-operatingsystems-linux-nrpe4
+apt-get install centreon-pack-operatingsystems-linux-telegraf-agent
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
-yum install centreon-pack-operatingsystems-linux-nrpe4
+yum install centreon-pack-operatingsystems-linux-telegraf-agent
 ```
 
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **Linux NRPE4** connector through
-the **Configuration > Monitoring Connector Manager** menu.
+2. Quel que soit le type de la licence (*online* ou *offline*), installez le connecteur **Linux Telegraf-Agent**
+depuis l'interface web et le menu **Configuration > Gestionnaire de connecteurs de supervision**.
 
 ### Plugin
 
-Use the commands below according to your operating system's package manager:
+Utilisez les commandes ci-dessous en fonction du gestionnaire de paquets de votre système d'exploitation :
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -653,10 +725,10 @@ dnf install nagios-plugins-nrpe
 ```
 
 </TabItem>
-<TabItem value="Debian 11" label="Debian 11">
+<TabItem value="Debian 11 & 12" label="Debian 11 & 12">
 
 ```bash
-apt install nagios-nrpe-plugin
+apt-get install nagios-nrpe-plugin
 ```
 
 </TabItem>
@@ -669,74 +741,74 @@ yum install nagios-plugins-nrpe
 </TabItem>
 </Tabs>
 
-## Using the monitoring connector
+## Utiliser le connecteur de supervision
 
-### Using a host template provided by the connector
+### Utiliser un modèle d'hôte issu du connecteur
 
-1. Log into Centreon and add a new host through **Configuration > Hosts**.
-2. Fill in the **Name**, **Alias** & **IP Address/DNS** fields according to your resource's settings.
-3. Apply the **OS-Linux-NRPE4-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
-4. Fill in the macros you want. Some macros are mandatory.
+1. Ajoutez un hôte à Centreon depuis la page **Configuration > Hôtes**.
+2. Complétez les champs **Nom**, **Alias** & **IP Address/DNS** correspondant à votre ressource.
+3. Appliquez le modèle d'hôte **OS-Linux-Telegraf-Agent-custom**. Une liste de macros apparaît. Les macros vous permettent de définir comment le connecteur se connectera à la ressource, ainsi que de personnaliser le comportement du connecteur.
+4. Renseignez les macros désirées. Attention, certaines macros sont obligatoires.
 
-| Macro            | Description                                                                                          | Default value                  | Mandatory   |
+| Macro            | Description                                                                                          | Valeur par défaut              | Obligatoire |
 |:-----------------|:-----------------------------------------------------------------------------------------------------|:-------------------------------|:-----------:|
 | NRPEPORT         |                                                                                                      | 5666                           |             |
 | NRPECLIENT       |                                                                                                      | check\_nrpe                    |             |
 | NRPESTATEFILEDIR | Define the cache directory (default: '/var/lib/centreon/centplugins')                                | /var/lib/centreon/centplugins/ |             |
 | NRPETIMEOUT      |                                                                                                      | 5                              |             |
-| NRPEEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). All options are listed [here](#available-options). |                                |             |
+| NRPEEXTRAOPTIONS | Any extra option you may want to add to every command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                                |             |
 
-5. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The host appears in the list of hosts, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the host: it shows the values of the macros.
+5. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). L'hôte apparaît dans la liste des hôtes supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails de l'hôte : celle-ci montre les valeurs des macros.
 
-### Using a service template provided by the connector
+### Utiliser un modèle de service issu du connecteur
 
-1. If you have used a host template and checked **Create Services linked to the Template too**, the services linked to the template have been created automatically, using the corresponding service templates. Otherwise, [create manually the services you want](/docs/monitoring/basic-objects/services) and apply a service template to them.
-2. Fill in the macros you want (e.g. to change the thresholds for the alerts). Some macros are mandatory (see the table below).
+1. Si vous avez utilisé un modèle d'hôte et coché la case **Créer aussi les services liés aux modèles**, les services associés au modèle ont été créés automatiquement, avec les modèles de services correspondants. Sinon, [créez les services désirés manuellement](/docs/monitoring/basic-objects/services) et appliquez-leur un modèle de service.
+2. Renseignez les macros désirées (par exemple, ajustez les seuils d'alerte). Les macros indiquées ci-dessous comme requises (**Obligatoire**) doivent être renseignées.
 
 <Tabs groupId="sync">
 <TabItem value="Cmd-Generic" label="Cmd-Generic">
 
-| Macro          | Description                                                                                                                                       | Default value     | Mandatory   |
+| Macro          | Description                                                                                                                                       | Valeur par défaut | Obligatoire |
 |:---------------|:--------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | COMMAND        | Command to test (default: none). You can use 'sh' to use '&&' or '\|\|'                                                                           |                   | X           |
 | COMMANDOPTIONS | Command options (default: none)                                                                                                                   |                   |             |
 | THRESHOLDS     | Set action according command exit code. Example: %(code) == 0,OK,File xxx exist#%(code) == 1,CRITICAL,File xxx not exist#,UNKNOWN,Command problem |                   | X           |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                |                   |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                |                   |             |
 
 </TabItem>
 <TabItem value="Connections-Generic" label="Connections-Generic">
 
-| Macro             | Description                                                                                        | Default value     | Mandatory   |
+| Macro             | Description                                                                                        | Valeur par défaut | Obligatoire |
 |:------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | CONNECTIONCOMMAND | Default mode for parsing and command: 'netstat' (default) or 'ss'                                  | ss                | X           |
 | WARNING           | Warning threshold for total connections                                                            |                   |             |
 | CRITICAL          | Critical threshold for total connections                                                           |                   |             |
-| EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| EXTRAOPTIONS      | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
 <TabItem value="Cpu" label="Cpu">
 
-| Macro           | Description                                                                                        | Default value     | Mandatory   |
+| Macro           | Description                                                                                        | Valeur par défaut | Obligatoire |
 |:----------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | WARNINGAVERAGE  | Warning threshold average CPU utilization                                                          |                   |             |
 | CRITICALAVERAGE | Critical threshold average CPU utilization                                                         |                   |             |
 | WARNINGCORE     | Warning thresholds for each CPU core                                                               |                   |             |
 | CRITICALCORE    | Critical thresholds for each CPU core                                                              |                   |             |
-| EXTRAOPTIONS    | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| EXTRAOPTIONS    | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
 <TabItem value="Cpu-Detailed" label="Cpu-Detailed">
 
-| Macro        | Description                                                                                        | Default value     | Mandatory   |
+| Macro        | Description                                                                                        | Valeur par défaut | Obligatoire |
 |:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | WARNINGIDLE  | Warning threshold in percent                                                                       |                   |             |
 | CRITICALIDLE | Critical threshold in percent                                                                      |                   |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
 <TabItem value="Disk-IO" label="Disk-IO">
 
-| Macro              | Description                                                                                        | Default value     | Mandatory   |
+| Macro              | Description                                                                                        | Valeur par défaut | Obligatoire |
 |:-------------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | FILTERPARTITIONAME | Filter partition name (regexp can be used)                                                         |                   |             |
 | WARNINGREADUSAGE   | Thresholds                                                                                         |                   |             |
@@ -751,33 +823,33 @@ yum install nagios-plugins-nrpe
 | CRITICALWRITEUSAGE | Thresholds                                                                                         |                   |             |
 | WARNINGWRITEWAIT   | Thresholds                                                                                         |                   |             |
 | CRITICALWRITEWAIT  | Thresholds                                                                                         |                   |             |
-| EXTRAOPTIONS       | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose --skip  |             |
+| EXTRAOPTIONS       | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose --skip  |             |
 
 </TabItem>
 <TabItem value="Disks" label="Disks">
 
-| Macro            | Description                                                                                        | Default value     | Mandatory   |
+| Macro            | Description                                                                                        | Valeur par défaut | Obligatoire |
 |:-----------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | FILTERMOUNTPOINT | Filter filesystem mount point (regexp can be used)                                                 |                   |             |
 | WARNING          | Warning threshold                                                                                  |                   |             |
 | CRITICAL         | Critical threshold                                                                                 |                   |             |
-| EXTRAOPTIONS     | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
+| EXTRAOPTIONS     | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
 
 </TabItem>
 <TabItem value="File-Date-Generic" label="File-Date-Generic">
 
-| Macro        | Description                                                                                                                                | Default value     | Mandatory   |
+| Macro        | Description                                                                                                                                | Valeur par défaut | Obligatoire |
 |:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | FILES        | Files/Directories to check. (Shell expansion is ok)                                                                                        |                   | X           |
 | FILTERPLUGIN | Filter files/directories in the plugin. Values from exclude files/directories are counted in parent directories!!! Perl Regexp can be used |                   |             |
 | WARNING      | Warning threshold in seconds for each files/directories (diff time)                                                                        |                   |             |
 | CRITICAL     | Critical threshold in seconds for each files/directories (diff time)                                                                       |                   |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                         | --verbose         |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                         | --verbose         |             |
 
 </TabItem>
 <TabItem value="File-Size-Generic" label="File-Size-Generic">
 
-| Macro         | Description                                                                                                                                | Default value     | Mandatory   |
+| Macro         | Description                                                                                                                                | Valeur par défaut | Obligatoire |
 |:--------------|:-------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | FILES         | Files/Directories to check. (Shell expansion is ok)                                                                                        |                   | X           |
 | FILTERPLUGIN  | Filter files/directories in the plugin. Values from exclude files/directories are counted in parent directories!!! Perl Regexp can be used |                   |             |
@@ -785,56 +857,56 @@ yum install nagios-plugins-nrpe
 | CRITICALONE   | Critical threshold in bytes for each files/directories                                                                                     |                   |             |
 | WARNINGTOTAL  | Warning threshold in bytes for all files/directories                                                                                       |                   |             |
 | CRITICALTOTAL | Critical threshold in bytes for all files/directories                                                                                      |                   |             |
-| EXTRAOPTIONS  | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                         | --verbose         |             |
+| EXTRAOPTIONS  | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                         | --verbose         |             |
 
 </TabItem>
 <TabItem value="Inodes" label="Inodes">
 
-| Macro            | Description                                                                                        | Default value     | Mandatory   |
+| Macro            | Description                                                                                        | Valeur par défaut | Obligatoire |
 |:-----------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | FILTERMOUNTPOINT | Filter filesystem mount point (regexp can be used)                                                 |                   |             |
 | WARNING          | Warning threshold in percent                                                                       |                   |             |
 | CRITICAL         | Critical threshold in percent                                                                      |                   |             |
-| EXTRAOPTIONS     | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose         |             |
+| EXTRAOPTIONS     | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose         |             |
 
 </TabItem>
 <TabItem value="Is-File-Generic" label="Is-File-Generic">
 
-| Macro        | Description                                                                                        | Default value     | Mandatory   |
+| Macro        | Description                                                                                        | Valeur par défaut | Obligatoire |
 |:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | COMMAND      | Command to test (default: none). You can use 'sh' to use '&&' or '\|\|'                            | test              | X           |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
 <TabItem value="Is-Not-File-Generic" label="Is-Not-File-Generic">
 
-| Macro        | Description                                                                                        | Default value     | Mandatory   |
+| Macro        | Description                                                                                        | Valeur par défaut | Obligatoire |
 |:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | COMMAND      | Command to test (default: none). You can use 'sh' to use '&&' or '\|\|'                            | test              | X           |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
 <TabItem value="Load" label="Load">
 
-| Macro        | Description                                                                                        | Default value     | Mandatory   |
+| Macro        | Description                                                                                        | Valeur par défaut | Obligatoire |
 |:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | WARNING      | Warning threshold (1min,5min,15min)                                                                |                   |             |
 | CRITICAL     | Critical threshold (1min,5min,15min)                                                               |                   |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
 <TabItem value="Memory" label="Memory">
 
-| Macro        | Description                                                                                        | Default value     | Mandatory   |
+| Macro        | Description                                                                                        | Valeur par défaut | Obligatoire |
 |:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | WARNING      | Thresholds.                                                                                                   |                   |             |
 | CRITICAL     | Thresholds.                                                                                                   |                   |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
 <TabItem value="Ntp" label="Ntp">
 
-| Macro           | Description                                                                                                                                                         | Default value                | Mandatory   |
+| Macro           | Description                                                                                                                                                         | Valeur par défaut            | Obligatoire |
 |:----------------|:--------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------|:-----------:|
 | NTPCOMMAND      | Default mode for parsing and command: 'ntpq' (default), 'chronyc' or 'all'                                                                                          | all                          |             |
 | FILTERPEERNAME  | Filter peer name (can be a regexp)                                                                                                                                  | .*                           |             |
@@ -847,24 +919,24 @@ yum install nagios-plugins-nrpe
 | CRITICALSTATUS  | Define the conditions to match for the status to be CRITICAL. You can use the following variables: %{state}, %{rawstate}, %{type}, %{rawtype}, %{reach}, %{display} |                              |             |
 | WARNINGSTRATUM  | Warning threshold                                                                                                                                                   |                              |             |
 | CRITICALSTRATUM | Critical threshold                                                                                                                                                  |                              |             |
-| EXTRAOPTIONS    | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                  | --use-new-perfdata --verbose |             |
+| EXTRAOPTIONS    | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                  | --use-new-perfdata --verbose |             |
 
 </TabItem>
 <TabItem value="Open-Files" label="Open-Files">
 
-| Macro          | Description                                                                                        | Default value                | Mandatory   |
+| Macro          | Description                                                                                        | Valeur par défaut            | Obligatoire |
 |:---------------|:---------------------------------------------------------------------------------------------------|:-----------------------------|:-----------:|
 | FILTERAPPNAME  | Filter application name (can be a regexp)                                                          |                              |             |
 | FILTERUSERNAME | Filter username name (can be a regexp)                                                             |                              |             |
 | FILTERPID      | Filter PID (can be a regexp)                                                                       |                              |             |
 | WARNING        | Thresholds                                                                                         |                              |             |
 | CRITICAL       | Thresholds                                                                                         |                              |             |
-| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose --use-new-perfdata |             |
+| EXTRAOPTIONS   | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose --use-new-perfdata |             |
 
 </TabItem>
 <TabItem value="Packet-Errors" label="Packet-Errors">
 
-| Macro              | Description                                                                                        | Default value           | Mandatory   |
+| Macro              | Description                                                                                        | Valeur par défaut       | Obligatoire |
 |:-------------------|:---------------------------------------------------------------------------------------------------|:------------------------|:-----------:|
 | FILTERINTERFACE    | Filter interface name (regexp can be used)                                                         |                         |             |
 | FILTERSTATE        | Filter filesystem type (regexp can be used)                                                        |                         |             |
@@ -876,24 +948,24 @@ yum install nagios-plugins-nrpe
 | CRITICALOUTDISCARD | Thresholds.                                                                                        |                         |             |
 | WARNINGOUTERROR    | Thresholds.                                                                                        |                         |             |
 | CRITICALOUTERROR   | Thresholds.                                                                                        |                         |             |
-| EXTRAOPTIONS       | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). | --verbose --no-loopback |             |
+| EXTRAOPTIONS       | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). | --verbose --no-loopback |             |
 
 </TabItem>
 <TabItem value="Pending-Updates" label="Pending-Updates">
 
-| Macro            | Description                                                                                        | Default value     | Mandatory   |
+| Macro            | Description                                                                                        | Valeur par défaut | Obligatoire |
 |:-----------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | OSMODE           | Default mode for parsing and command: 'rhel' (default), 'debian', 'suse'                           | rhel              |             |
 | FILTERPACKAGE    | Filter package name                                                                                |                   |             |
 | FILTERREPOSITORY | Filter repository name                                                                             |                   |             |
 | WARNINGTOTAL     | Warning threshold for total amount of pending updates                                              |                   |             |
 | CRITICALTOTAL    | Critical threshold for total amount of pending updates                                             |                   |             |
-| EXTRAOPTIONS     | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| EXTRAOPTIONS     | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
 <TabItem value="Process-Generic" label="Process-Generic">
 
-| Macro         | Description                                                                                                                                           | Default value     | Mandatory   |
+| Macro         | Description                                                                                                                                           | Valeur par défaut | Obligatoire |
 |:--------------|:------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | FILTERCOMMAND | Filter process commands (regexp can be used)                                                                                                          |                   |             |
 | FILTERARG     | Filter process arguments (regexp can be used)                                                                                                         |                   |             |
@@ -902,21 +974,21 @@ yum install nagios-plugins-nrpe
 | CRITICALTIME  | Thresholds                                                                                                                                            |                   |             |
 | WARNINGTOTAL  | Thresholds                                                                                                                                            |                   |             |
 | CRITICALTOTAL | Thresholds                                                                                                                                            |                   |             |
-| EXTRAOPTIONS  | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                    | --verbose         |             |
+| EXTRAOPTIONS  | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                    | --verbose         |             |
 
 </TabItem>
 <TabItem value="Swap" label="Swap">
 
-| Macro        | Description                                                                                        | Default value     | Mandatory   |
+| Macro        | Description                                                                                        | Valeur par défaut | Obligatoire |
 |:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | WARNING      | Threshold, can be 'usage' (in Bytes), 'usage-free' (in Bytes), 'usage-prct' (%)                    |                   |             |
 | CRITICAL     | Threshold, can be 'usage' (in Bytes), 'usage-free' (in Bytes), 'usage-prct' (%)                    |                   |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
 <TabItem value="Systemd-Journal" label="Systemd-Journal">
 
-| Macro           | Description                                                                                                                                                     | Default value     | Mandatory   |
+| Macro           | Description                                                                                                                                                     | Valeur par défaut | Obligatoire |
 |:----------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | SINCE           | Defines the amount of time to look back at messages. Can beminutes (ie 5 "minutes ago") or 'cache' to use the timestamp from last execution. (default: 'cache') | cache             |             |
 | TIMEZONE        | Defines the timezone to convert date/time to the host timezone when using timestamp from cache. (default: 'local')                                              | local             |             |
@@ -924,12 +996,12 @@ yum install nagios-plugins-nrpe
 | FILTERMESSAGE   | Filter on message content (can be a regexp)                                                                                                                     |                   |             |
 | WARNINGENTRIES  | Thresholds on the number of entries found in the journal for the specified parameters                                                                           |                   |             |
 | CRITICALENTRIES | Thresholds on the number of entries found in the journal for the specified parameters                                                                           |                   |             |
-| EXTRAOPTIONS    | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                              |                   |             |
+| EXTRAOPTIONS    | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                              |                   |             |
 
 </TabItem>
 <TabItem value="Systemd-Sc-Status" label="Systemd-Sc-Status">
 
-| Macro                | Description                                                                                                                                                                                                                                                                                                                                                                                                                             | Default value                | Mandatory   |
+| Macro                | Description                                                                                                                                                                                                                                                                                                                                                                                                                             | Valeur par défaut            | Obligatoire |
 |:---------------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------|:-----------:|
 | FILTERNAME           | Filter service name (can be a regexp)                                                                                                                                                                                                                                                                                                                                                                                                   | .*                           |             |
 | EXCLUDENAME          | Exclude service name (can be a regexp)                                                                                                                                                                                                                                                                                                                                                                                                  |                              |             |
@@ -943,12 +1015,12 @@ yum install nagios-plugins-nrpe
 | WARNINGTOTALFAILED   | Thresholds                                                                                                                                                                                                                                                                                                                                                                                                                              |                              |             |
 | WARNINGTOTALRUNNING  | Thresholds                                                                                                                                                                                                                                                                                                                                                                                                                              |                              |             |
 | CRITICALTOTALRUNNING | Thresholds                                                                                                                                                                                                                                                                                                                                                                                                                              |                              |             |
-| EXTRAOPTIONS         | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options).                                                                                                                                                                                                                                                                                                                                      | --use-new-perfdata --verbose |             |
+| EXTRAOPTIONS         | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles).                                                                                                                                                                                                                                                                                                                                      | --use-new-perfdata --verbose |             |
 
 </TabItem>
 <TabItem value="Traffic" label="Traffic">
 
-| Macro           | Description                                                                                        | Default value     | Mandatory   |
+| Macro           | Description                                                                                        | Valeur par défaut | Obligatoire |
 |:----------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | FILTERSTATE     | Filter interfaces type (regexp can be used)                                                        | RU                |             |
 | FILTERINTERFACE | Filter interface name (regexp can be used)                                                         |                   |             |
@@ -957,27 +1029,29 @@ yum install nagios-plugins-nrpe
 | CRITICALIN      | Critical threshold in percent for 'in' traffic                                                     |                   |             |
 | WARNINGOUT      | Warning threshold in percent for 'out' traffic                                                     |                   |             |
 | CRITICALOUT     | Critical threshold in percent for 'out' traffic                                                    |                   |             |
-| EXTRAOPTIONS    | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| EXTRAOPTIONS    | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
 <TabItem value="Uptime" label="Uptime">
 
-| Macro        | Description                                                                                        | Default value     | Mandatory   |
+| Macro        | Description                                                                                        | Valeur par défaut | Obligatoire |
 |:-------------|:---------------------------------------------------------------------------------------------------|:------------------|:-----------:|
 | WARNING      | Warning threshold in seconds                                                                       |                   |             |
 | CRITICAL     | Critical threshold in seconds                                                                      |                   |             |
-| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). All options are listed [here](#available-options). |                   |             |
+| EXTRAOPTIONS | Any extra option you may want to add to the command (a --verbose flag for example). Toutes les options sont listées [ici](#options-disponibles). |                   |             |
 
 </TabItem>
 </Tabs>
 
-3. [Deploy the configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). The service appears in the list of services, and on the **Resources Status** page. The command that is sent by the connector is displayed in the details panel of the service: it shows the values of the macros.
+3. [Déployez la configuration](/docs/monitoring/monitoring-servers/deploying-a-configuration). Le service apparaît dans la liste des services supervisés, et dans la page **Statut des ressources**. La commande envoyée par le connecteur est indiquée dans le panneau de détails du service : celle-ci montre les valeurs des macros.
 
-## How to check in the CLI that the configuration is OK and what are the main options for?
+## Comment puis-je tester le plugin et que signifient les options des commandes ?
 
-Once the plugin is installed, log into your Centreon poller's CLI using the
-**centreon-engine** user account (`su - centreon-engine`). Test that the connector 
-is able to monitor a resource using a command like this one (replace the sample values by yours):
+Une fois le plugin installé, vous pouvez tester celui-ci directement en ligne
+de commande depuis votre collecteur Centreon en vous connectant avec
+l'utilisateur **centreon-engine** (`su - centreon-engine`). Vous pouvez tester
+que le connecteur arrive bien à superviser une ressource en utilisant une commande
+telle que celle-ci (remplacez les valeurs d'exemple par les vôtres) :
 
 ```bash
 /usr/lib64/nagios/plugins//check_nrpe -H 10.0.0.1 -p 5666 -t 5  -c check_centreon_plugins -a 'os::linux::local::plugin' 'traffic'  ' \
@@ -991,26 +1065,26 @@ is able to monitor a resource using a command like this one (replace the sample 
 	--statefile-dir=/var/lib/centreon/centplugins/ rn '
 ```
 
-The expected command output is shown below:
+La commande devrait retourner un message de sortie similaire à :
 
 ```bash
 OK: All interfaces are ok | '*interface*#interface.traffic.in.bitspersecond'=b/s;;;;'*interface*#interface.traffic.out.bitspersecond'=b/s;;;;
 ```
 
-### Troubleshooting
+### Diagnostic des erreurs communes
 
-Please find the [troubleshooting documentation](../getting-started/how-to-guides/troubleshooting-plugins.md)
-for Centreon Plugins typical issues.
+Rendez-vous sur la [documentation dédiée](../getting-started/how-to-guides/troubleshooting-plugins.md)
+pour le diagnostic des erreurs communes des plugins Centreon.
 
-### Available modes
+### Modes disponibles
 
-In most cases, a mode corresponds to a service template. The mode appears in the execution command for the connector.
-In the Centreon interface, you don't need to specify a mode explicitly: its use is implied when you apply a service template.
-However, you will need to specify the correct mode for the template if you want to test the execution command for the 
-connector in your terminal.
+Dans la plupart des cas, un mode correspond à un modèle de service. Le mode est renseigné dans la commande d'exécution 
+du connecteur. Dans l'interface de Centreon, il n'est pas nécessaire de les spécifier explicitement, leur utilisation est
+implicite dès lors que vous utilisez un modèle de service. En revanche, vous devrez spécifier le mode correspondant à ce
+modèle si vous voulez tester la commande d'exécution du connecteur dans votre terminal.
 
-All available modes can be displayed by adding the `--list-mode` parameter to
-the command:
+Tous les modes disponibles peuvent être affichés en ajoutant le paramètre
+`--list-mode` à la commande :
 
 ```bash
 /usr/lib64/nagios/plugins//check_nrpe -H 10.0.0.1 -p 5666 -t 5  -c check_centreon_plugins -a 'os::linux::local::plugin' 'traffic'  ' \
@@ -1018,48 +1092,48 @@ the command:
 	--list-mode
 ```
 
-The plugin brings the following modes:
+Le plugin apporte les modes suivants :
 
-| Mode                                                                                                                                    | Linked service template                                                                                                     |
-|:----------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------|
-| check-plugin [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/checkplugin.pm)]                 | Not used in this Monitoring Connector                                                                                       |
-| cmd-return [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/cmdreturn.pm)]                     | OS-Linux-Cmd-Generic-NRPE4-custom<br />OS-Linux-Is-File-Generic-NRPE4-custom<br />OS-Linux-Is-Not-File-Generic-NRPE4-custom |
-| connections [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/connections.pm)]                  | OS-Linux-Connections-Generic-NRPE4-custom                                                                                   |
-| cpu [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/cpu.pm)]                                  | OS-Linux-Cpu-NRPE4-custom                                                                                                   |
-| cpu-detailed [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/cpudetailed.pm)]                 | OS-Linux-Cpu-Detailed-NRPE4-custom                                                                                          |
-| discovery-snmp [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/discoverysnmp.pm)]             | Not used in this Monitoring Connector                                                                                       |
-| discovery-snmpv3 [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/discoverysnmpv3.pm)]         | Not used in this Monitoring Connector                                                                                       |
-| diskio [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/diskio.pm)]                            | OS-Linux-Disk-IO-NRPE4-custom                                                                                               |
-| files-date [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/filesdate.pm)]                     | OS-Linux-File-Date-Generic-NRPE4-custom                                                                                     |
-| files-size [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/filessize.pm)]                     | OS-Linux-File-Size-Generic-NRPE4-custom                                                                                     |
-| inodes [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/inodes.pm)]                            | OS-Linux-Inodes-NRPE4-custom                                                                                                |
-| list-interfaces [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/listinterfaces.pm)]           | Used for service discovery                                                                                                  |
-| list-partitions [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/listpartitions.pm)]           | Not used in this Monitoring Connector                                                                                       |
-| list-storages [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/liststorages.pm)]               | Used for service discovery                                                                                                  |
-| list-systemdservices [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/listsystemdservices.pm)] | Not used in this Monitoring Connector                                                                                       |
-| load [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/loadaverage.pm)]                         | OS-Linux-Load-NRPE4-custom                                                                                                  |
-| lvm [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/lvm.pm)]                                  | Not used in this Monitoring Connector                                                                                       |
-| memory [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/memory.pm)]                            | OS-Linux-Memory-NRPE4-custom                                                                                                |
-| mountpoint [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/mountpoint.pm)]                    | Not used in this Monitoring Connector                                                                                       |
-| ntp [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/ntp.pm)]                                  | OS-Linux-Ntp-NRPE4-custom                                                                                                   |
-| open-files [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/openfiles.pm)]                     | OS-Linux-Open-Files-NRPE4-custom                                                                                            |
-| packet-errors [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/packeterrors.pm)]               | OS-Linux-Packet-Errors-NRPE4-custom                                                                                         |
-| paging [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/paging.pm)]                            | Not used in this Monitoring Connector                                                                                       |
-| pending-updates [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/pendingupdates.pm)]           | OS-Linux-Pending-Updates-NRPE4-custom                                                                                       |
-| process [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/process.pm)]                          | OS-Linux-Process-Generic-NRPE4-custom                                                                                       |
-| quota [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/quota.pm)]                              | Not used in this Monitoring Connector                                                                                       |
-| storage [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/storage.pm)]                          | OS-Linux-Disks-NRPE4-custom                                                                                                 |
-| swap [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/swap.pm)]                                | OS-Linux-Swap-NRPE4-custom                                                                                                  |
-| systemd-journal [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/systemdjournal.pm)]           | OS-Linux-Systemd-Journal-NRPE4-custom                                                                                       |
-| systemd-sc-status [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/systemdscstatus.pm)]        | OS-Linux-Systemd-Sc-Status-NRPE4-custom                                                                                     |
-| traffic [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/traffic.pm)]                          | OS-Linux-Traffic-NRPE4-custom                                                                                               |
-| uptime [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/uptime.pm)]                            | OS-Linux-Uptime-NRPE4-custom                                                                                                |
+| Mode                                                                                                                                    | Modèle de service associé                                                                                                                              |
+|:----------------------------------------------------------------------------------------------------------------------------------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------|
+| check-plugin [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/checkplugin.pm)]                 | Not used in this Monitoring Connector                                                                                                                  |
+| cmd-return [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/cmdreturn.pm)]                     | OS-Linux-Cmd-Generic-Telegraf-Agent-custom<br />OS-Linux-Is-File-Generic-Telegraf-Agent-custom<br />OS-Linux-Is-Not-File-Generic-Telegraf-Agent-custom |
+| connections [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/connections.pm)]                  | OS-Linux-Connections-Generic-Telegraf-Agent-custom                                                                                                     |
+| cpu [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/cpu.pm)]                                  | OS-Linux-Cpu-Telegraf-Agent-custom                                                                                                                     |
+| cpu-detailed [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/cpudetailed.pm)]                 | OS-Linux-Cpu-Detailed-Telegraf-Agent-custom                                                                                                            |
+| discovery-snmp [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/discoverysnmp.pm)]             | Not used in this Monitoring Connector                                                                                                                  |
+| discovery-snmpv3 [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/discoverysnmpv3.pm)]         | Not used in this Monitoring Connector                                                                                                                  |
+| diskio [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/diskio.pm)]                            | OS-Linux-Disk-IO-Telegraf-Agent-custom                                                                                                                 |
+| files-date [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/filesdate.pm)]                     | OS-Linux-File-Date-Generic-Telegraf-Agent-custom                                                                                                       |
+| files-size [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/filessize.pm)]                     | OS-Linux-File-Size-Generic-Telegraf-Agent-custom                                                                                                       |
+| inodes [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/inodes.pm)]                            | OS-Linux-Inodes-Telegraf-Agent-custom                                                                                                                  |
+| list-interfaces [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/listinterfaces.pm)]           | Used for service discovery                                                                                                                             |
+| list-partitions [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/listpartitions.pm)]           | Not used in this Monitoring Connector                                                                                                                  |
+| list-storages [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/liststorages.pm)]               | Used for service discovery                                                                                                                             |
+| list-systemdservices [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/listsystemdservices.pm)] | Not used in this Monitoring Connector                                                                                                                  |
+| load [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/loadaverage.pm)]                         | OS-Linux-Load-Telegraf-Agent-custom                                                                                                                    |
+| lvm [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/lvm.pm)]                                  | Not used in this Monitoring Connector                                                                                                                  |
+| memory [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/memory.pm)]                            | OS-Linux-Memory-Telegraf-Agent-custom                                                                                                                  |
+| mountpoint [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/mountpoint.pm)]                    | Not used in this Monitoring Connector                                                                                                                  |
+| ntp [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/ntp.pm)]                                  | OS-Linux-Ntp-Telegraf-Agent-custom                                                                                                                     |
+| open-files [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/openfiles.pm)]                     | OS-Linux-Open-Files-Telegraf-Agent-custom                                                                                                              |
+| packet-errors [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/packeterrors.pm)]               | OS-Linux-Packet-Errors-Telegraf-Agent-custom                                                                                                           |
+| paging [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/paging.pm)]                            | Not used in this Monitoring Connector                                                                                                                  |
+| pending-updates [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/pendingupdates.pm)]           | OS-Linux-Pending-Updates-Telegraf-Agent-custom                                                                                                         |
+| process [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/process.pm)]                          | OS-Linux-Process-Generic-Telegraf-Agent-custom                                                                                                         |
+| quota [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/quota.pm)]                              | Not used in this Monitoring Connector                                                                                                                  |
+| storage [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/storage.pm)]                          | OS-Linux-Disks-Telegraf-Agent-custom                                                                                                                   |
+| swap [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/swap.pm)]                                | OS-Linux-Swap-Telegraf-Agent-custom                                                                                                                    |
+| systemd-journal [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/systemdjournal.pm)]           | OS-Linux-Systemd-Journal-Telegraf-Agent-custom                                                                                                         |
+| systemd-sc-status [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/systemdscstatus.pm)]        | OS-Linux-Systemd-Sc-Status-Telegraf-Agent-custom                                                                                                       |
+| traffic [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/traffic.pm)]                          | OS-Linux-Traffic-Telegraf-Agent-custom                                                                                                                 |
+| uptime [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/uptime.pm)]                            | OS-Linux-Uptime-Telegraf-Agent-custom                                                                                                                  |
 
-### Available options
+### Options disponibles
 
-#### Generic options
+#### Options génériques
 
-All generic options are listed here:
+Les options génériques sont listées ci-dessous :
 
 | Option                                     | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 |:-------------------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -1113,9 +1187,9 @@ All generic options are listed here:
 | --plink-option                             | Specify plink options (example: --plink-option='-T').                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 | --libssh-strict-connect                    | Connection won't be OK even if there is a problem (server known changed or server found other) with the ssh server.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 
-#### Modes options
+#### Options des modes
 
-All available options for each service template are listed below:
+Les options disponibles pour chaque modèle de services sont listées ci-dessous :
 
 <Tabs groupId="sync">
 <TabItem value="Cmd-Generic" label="Cmd-Generic">
@@ -1131,13 +1205,13 @@ All available options for each service template are listed below:
 </TabItem>
 <TabItem value="Connections-Generic" label="Connections-Generic">
 
-| Option        | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
-|:--------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| --warning     | Warning threshold for total connections.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             |
-| --critical    | Critical threshold for total connections.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| --service     | Check tcp connections following rules: tag,\[type\],\[state\],\[port-src\],\[port-dst\],\[filter-ip-src\],\[filter -ip-dst\],\[threshold-warning\],\[threshold-critical\]  Example to test SSH connections on the server: --service="ssh,,,22,,,,10,20"  \<tag\>           Name to identify service (must be unique and     couldn't be 'total').  \<type\>          regexp - can use 'ipv4', 'ipv6', 'udp', 'udp6'.     Empty means all.  \<state\>         regexp - can use 'finWait1', 'established',...     Empty means all (minus listen). For udp     connections, there are 'established' and     'listen'.  \<filter-ip-*\>   regexp - can use to exclude or include some IPs.  \<threshold-*\>   nagios-perfdata - number of connections.   |
-| --application | Check tcp connections of mutiple services: tag,\[services\],\[threshold-warning\],\[threshold-critical\]  Example: --application="web,http\|https,100,200"  \<tag\>           Name to identify application (must be unique).  \<services\>      List of services (used the tag name. Separated     by '\|').  \<threshold-*\>   nagios-perfdata - number of connections.                                                                                                                                                                                                                                                                                                                                                                             |
-| --con-mode    | Default mode for parsing and command: 'netstat' (default) or 'ss'.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   |
+| Option        | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
+|:--------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| --warning     | Warning threshold for total connections.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| --critical    | Critical threshold for total connections.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          |
+| --service     | Check tcp connections following rules: tag,\[type\],\[state\],\[port-src\],\[port-dst\],\[filter-ip-src\],\[filter -ip-dst\],\[threshold-warning\],\[threshold-critical\]  Example to test SSH connections on the server: --service="ssh,,,22,,,,10,20"  \<tag\>           Name to identify service (must be unique and     couldn't be 'total').  \<type\>          regexp - can use 'ipv4', 'ipv6', 'udp', 'udp6'.     Empty means all.  \<state\>         regexp - can use 'finWait1', 'established',...     Empty means all (minus listen). For udp     connections, there are 'established' and     'listen'.  \<filter-ip-*\>   regexp - can use to exclude or include some IPs.  \<threshold-*\>   nagios-perfdata - number of connections. |
+| --application | Check tcp connections of multiple services: tag,\[services\],\[threshold-warning\],\[threshold-critical\]  Example: --application="web,http\|https,100,200"  \<tag\>           Name to identify application (must be unique).  \<services\>      List of services (used the tag name. Separated     by '\|').  \<threshold-*\>   nagios-perfdata - number of connections.                                                                                                                                                                                                                                                                                                                                                                          |
+| --con-mode    | Default mode for parsing and command: 'netstat' (default) or 'ss'.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 |
 
 </TabItem>
 <TabItem value="Cpu" label="Cpu">
@@ -1486,8 +1560,8 @@ All available options for each service template are listed below:
 </TabItem>
 </Tabs>
 
-All available options for a given mode can be displayed by adding the
-`--help` parameter to the command:
+Pour un mode, la liste de toutes les options disponibles et leur signification peut être
+affichée en ajoutant le paramètre `--help` à la commande :
 
 ```bash
 /usr/lib64/nagios/plugins//check_nrpe -H 10.0.0.1 -p 5666 -t 5  -c check_centreon_plugins -a 'os::linux::local::plugin' 'traffic'  ' \

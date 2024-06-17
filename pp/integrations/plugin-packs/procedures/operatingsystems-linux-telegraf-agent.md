@@ -1,6 +1,6 @@
 ---
-id: operatingsystems-linux-nrpe4
-title: Linux NRPE4
+id: operatingsystems-linux-telegraf-agent
+title: Linux Telegraf Agent
 ---
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -9,49 +9,49 @@ import TabItem from '@theme/TabItem';
 
 ### Templates
 
-The Monitoring Connector **Linux NRPE4** brings a host template:
+The Monitoring Connector **Linux Telegraf Agent** brings a host template:
 
-* **OS-Linux-NRPE4-custom**
+* **OS-Linux-Telegraf-Agent-custom**
 
 The connector brings the following service templates (sorted by the host template they are attached to):
 
 <Tabs groupId="sync">
-<TabItem value="OS-Linux-NRPE4-custom" label="OS-Linux-NRPE4-custom">
+<TabItem value="OS-Linux-Telegraf-Agent-custom" label="OS-Linux-Telegraf-Agent-custom">
 
 | Service Alias | Service Template             | Service Description                                                                                                                                |
 |:--------------|:-----------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|
-| Cpu           | OS-Linux-Cpu-NRPE4-custom    | Check the rate of utilization of CPUs for the machine. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPUs |
-| Load          | OS-Linux-Load-NRPE4-custom   | Check the server load average                                                                                                                      |
-| Memory        | OS-Linux-Memory-NRPE4-custom | Check the rate of the utilization of memory                                                                                                        |
-| Ntp           | OS-Linux-Ntp-NRPE4-custom    | Check system time synchronization with NTP server                                                                                                  |
-| Protocol-NRPE4 | OS-Linux-Protocol-NRPE4-custom | Control test to make sure the NRPE v4 protocol is configured correctly.    |
-| Swap          | OS-Linux-Swap-NRPE4-custom   | Check virtual memory usage                                                                                                                         |
-| Uptime        | OS-Linux-Uptime-NRPE4-custom | Time since the server has been working and available                                                                                               |
+| Cpu           | OS-Linux-Cpu-Telegraf-Agent-custom    | Check the rate of utilization of CPUs for the machine. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPUs |
+| Load          | OS-Linux-Load-Telegraf-Agent-custom   | Check the server load average                                                                                                                      |
+| Memory        | OS-Linux-Memory-Telegraf-Agent-custom | Check the rate of the utilization of memory                                                                                                        |
+| Ntp           | OS-Linux-Ntp-Telegraf-Agent-custom    | Check system time synchronization with NTP server                                                                                                  |
+| Protocol-Telegraf-Agent | OS-Linux-Protocol-Telegraf-Agent-custom | Control test to make sure the NRPE v4 protocol is configured correctly.    |
+| Swap          | OS-Linux-Swap-Telegraf-Agent-custom   | Check virtual memory usage                                                                                                                         |
+| Uptime        | OS-Linux-Uptime-Telegraf-Agent-custom | Time since the server has been working and available                                                                                               |
 
-> The services listed above are created automatically when the **OS-Linux-NRPE4-custom** host template is used.
+> The services listed above are created automatically when the **OS-Linux-Telegraf-Agent-custom** host template is used.
 
 </TabItem>
 <TabItem value="Not attached to a host template" label="Not attached to a host template">
 
 | Service Alias       | Service Template                          | Service Description                                                                                                                                         | Discovery  |
 |:--------------------|:------------------------------------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------:|
-| Cmd-Generic         | OS-Linux-Cmd-Generic-NRPE4-custom         | Check exit code for Linux commands                                                                                                                           |            |
-| Connections-Generic | OS-Linux-Connections-Generic-NRPE4-custom | Check TCP/UDP connections                                                                                                                                   |            |
-| Cpu-Detailed        | OS-Linux-Cpu-Detailed-NRPE4-custom        | Check the detailed rate of utilization of CPUs for the machine. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPUs |            |
-| Disk-IO             | OS-Linux-Disk-IO-NRPE4-custom             | Check I/O counters of disks                                                                                                                                 |            |
-| Disks               | OS-Linux-Disks-NRPE4-custom               | Check the rate of free space on disks. For each check the mount point of disks will appear                                                                 | X          |
-| File-Date-Generic   | OS-Linux-File-Date-Generic-NRPE4-custom   | Check file or/and directory modification/creation/access times                                                                                              |            |
-| File-Size-Generic   | OS-Linux-File-Size-Generic-NRPE4-custom   | Check file or/and directory sizes                                                                                                                           |            |
-| Inodes              | OS-Linux-Inodes-NRPE4-custom              | Check the rate of free inodes on disks                                                                                                                      |            |
-| Is-File-Generic     | OS-Linux-Is-File-Generic-NRPE4-custom     | Check if file 'xxx' is present                                                                                                                              |            |
-| Is-Not-File-Generic | OS-Linux-Is-Not-File-Generic-NRPE4-custom | Check if file 'xxx' is not present                                                                                                                          |            |
-| Open-Files          | OS-Linux-Open-Files-NRPE4-custom          | Check file or/and directory modification/creation/access times                                                                                              |            |
-| Packet-Errors       | OS-Linux-Packet-Errors-NRPE4-custom       | Check packets in error/discarded from multiple network interfaces                                                                                             |            |
-| Pending-Updates     | OS-Linux-Pending-Updates-NRPE4-custom     | Check systemd services status                                                                                                                               |            |
-| Process-Generic     | OS-Linux-Process-Generic-NRPE4-custom     | Check Linux processes                                                                                                                                       |            |
-| Systemd-Journal     | OS-Linux-Systemd-Journal-NRPE4-custom     | Count journal entries using the `journalctl` command.          |            |
-| Systemd-Sc-Status   | OS-Linux-Systemd-Sc-Status-NRPE4-custom   | Check systemd services status                                                                                                                               |            |
-| Traffic             | OS-Linux-Traffic-NRPE4-custom             | Check the bandwidth of interfaces.                                                                   | X          |
+| Cmd-Generic         | OS-Linux-Cmd-Generic-Telegraf-Agent-custom         | Check exit code for Linux commands                                                                                                                           |            |
+| Connections-Generic | OS-Linux-Connections-Generic-Telegraf-Agent-custom | Check TCP/UDP connections                                                                                                                                   |            |
+| Cpu-Detailed        | OS-Linux-Cpu-Detailed-Telegraf-Agent-custom        | Check the detailed rate of utilization of CPUs for the machine. This check can give the average CPU utilization rate and the rate per CPU for multi-core CPUs |            |
+| Disk-IO             | OS-Linux-Disk-IO-Telegraf-Agent-custom             | Check I/O counters of disks                                                                                                                                 |            |
+| Disks               | OS-Linux-Disks-Telegraf-Agent-custom               | Check the rate of free space on disks. For each check the mount point of disks will appear                                                                 | X          |
+| File-Date-Generic   | OS-Linux-File-Date-Generic-Telegraf-Agent-custom   | Check file or/and directory modification/creation/access times                                                                                              |            |
+| File-Size-Generic   | OS-Linux-File-Size-Generic-Telegraf-Agent-custom   | Check file or/and directory sizes                                                                                                                           |            |
+| Inodes              | OS-Linux-Inodes-Telegraf-Agent-custom              | Check the rate of free inodes on disks                                                                                                                      |            |
+| Is-File-Generic     | OS-Linux-Is-File-Generic-Telegraf-Agent-custom     | Check if file 'xxx' is present                                                                                                                              |            |
+| Is-Not-File-Generic | OS-Linux-Is-Not-File-Generic-Telegraf-Agent-custom | Check if file 'xxx' is not present                                                                                                                          |            |
+| Open-Files          | OS-Linux-Open-Files-Telegraf-Agent-custom          | Check file or/and directory modification/creation/access times                                                                                              |            |
+| Packet-Errors       | OS-Linux-Packet-Errors-Telegraf-Agent-custom       | Check packets in error/discarded from multiple network interfaces                                                                                             |            |
+| Pending-Updates     | OS-Linux-Pending-Updates-Telegraf-Agent-custom     | Check systemd services status                                                                                                                               |            |
+| Process-Generic     | OS-Linux-Process-Generic-Telegraf-Agent-custom     | Check Linux processes                                                                                                                                       |            |
+| Systemd-Journal     | OS-Linux-Systemd-Journal-Telegraf-Agent-custom     | Count journal entries using the `journalctl` command.          |            |
+| Systemd-Sc-Status   | OS-Linux-Systemd-Sc-Status-Telegraf-Agent-custom   | Check systemd services status                                                                                                                               |            |
+| Traffic             | OS-Linux-Traffic-Telegraf-Agent-custom             | Check the bandwidth of interfaces.                                                                   | X          |
 
 > The services listed above are not created automatically when a host template is applied. To use them, [create a service manually](/docs/monitoring/basic-objects/services), then apply the service template you want.
 
@@ -66,8 +66,8 @@ The connector brings the following service templates (sorted by the host templat
 
 | Rule name                   | Description                                                   |
 |:----------------------------|:--------------------------------------------------------------|
-| OS-Linux-NRPE4-Disk-Name    | Discover the disk partitions and monitor space occupation     |
-| OS-Linux-NRPE4-Traffic-Name | Discover network interfaces and monitor bandwidth utilization |
+| OS-Linux-Telegraf-Agent-Disk-Name    | Discover the disk partitions and monitor space occupation     |
+| OS-Linux-Telegraf-Agent-Traffic-Name | Discover network interfaces and monitor bandwidth utilization |
 
 More information about discovering services automatically is available on the [dedicated page](/docs/monitoring/discovery/services-discovery)
 and in the [following chapter](/docs/monitoring/discovery/services-discovery/#discovery-rules).
@@ -257,7 +257,7 @@ Here is the list of services for this connector, detailing all metrics linked to
 | processes.disks.io.write.usage.bytespersecond | B/s   |
 
 </TabItem>
-<TabItem value="Protocol-NRPE4" label="Protocol-NRPE4">
+<TabItem value="Protocol-Telegraf-Agent" label="Protocol-Telegraf-Agent">
 
 Pas de métrique pour ce service.
 
@@ -319,11 +319,14 @@ The prerequisites below have to be applied to the Linux servers to be monitored.
 
 The NRPE protocol uses the TCP port 5666.
 
-| Source | Destination    | Protocole | Port |
-| ------ | -------------- | --------- | ---- |
-| Poller | Hôte supervisé | TCP       | 5666 |
+| Source | Destination    | Protocole | Port | Purpose |
+| ------ | -------------- | --------- | ---- | --- |
+| Hôte supervisé | Collecteur  | TCP       | 1443 | Access to Telegraf agent's configuration. |
+| Hôte supervisé | Collecteur  | TCP       | 4317 | OpenTelemetry data flow. |
 
 ### System prerequisites
+
+> The prerequisites listed below require that the prerequisites related to the poller have been applied first, especially the part that relates to the configuration server embedded in Centreon Engine.
 
 <Tabs groupId="sync">
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
@@ -332,33 +335,69 @@ The NRPE protocol uses the TCP port 5666.
 
 ```bash
 dnf -y install epel-release
-dnf -y install nrpe
 dnf -y config-manager --set-enabled 'powertools'
-mkdir -p /var/lib/centreon/centplugins/
-chown nrpe: /var/lib/centreon/centplugins/
 ```
 
-2. Change the IP address for the `allowed_hosts` parameter in **/etc/nagios/nrpe.cfg** (replace `POLLER_IP_ADDRESS` with the IP address of the poller that will monitor the host).
+2. Accept the poller's certificate.
+
+> Replace `mypoller.local` with the poller's FQDN. Telegraf will refuse the certificate if the configuration server is accessed using it's IP address.
 
 ```bash
-sed -i 's/dont_blame_nrpe=0/dont_blame_nrpe=1/'  /etc/nagios/nrpe.cfg
-sed -i 's/allowed_hosts=127.0.0.1,::1/allowed_hosts=POLLER_IP_ADDRESS/' /etc/nagios/nrpe.cfg
+openssl s_client -connect mypoller.local:1443 2>/dev/null </dev/null |  sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' >  /etc/pki/ca-trust/source/anchors/mypoller.local.crt
+update-ca-trust
 ```
 
-3. Add the definition of the `check_centreon_plugins` command:
+Make sure this request works:
 
 ```bash
-cat >/etc/nrpe.d/centreon-commands.cfg <<'EOF'
-command[check_centreon_plugins]=/usr/lib/centreon/plugins/centreon_linux_local.pl --plugin=$ARG1$ --mode=$ARG2$ $ARG3$
+curl https://mypoller.local:1443/engine?host=$HOSTNAME
+```
+
+
+3. Install the Telegraf agent.
+
+This part is an exerpt from [Telegraf's official documentation](https://docs.influxdata.com/telegraf/v1/install/?t=RedHat+%26amp%3B+CentOS).
+
+```bash
+cat > /etc/yum.repos.d/influxdb.repo <<'EOF'
+[influxdb]
+name = InfluxData Repository - Stable
+baseurl = https://repos.influxdata.com/stable/$basearch/main
+enabled = 1
+gpgcheck = 1
+gpgkey = https://repos.influxdata.com/influxdata-archive_compat.key
+EOF
+
+yum install -y telegraf
+```
+
+> During our tests, we observered an issue in file `/usr/lib/systemd/system/telegraf.service` where:
+
+```
+EnvironmentFile=-/etc/default/telegraf
+```
+
+Must be replaced by:
+
+```
+EnvironmentFile=-/etc/sysconfig/telegraf
+```
+
+Then run this command to apply the change:
+
+```bash
+systemctl daemon-reload
+```
+
+4. Parameter the Telegraf agent so that it gets its configuration from Centreon Engine.
+
+```bash
+cat > /etc/sysconfig/telegraf <<EOF
+TELEGRAF_OPTS='--config-url-watch-interval 120s --config=https://mypoller.local:1443/engine?host=$HOSTNAME'
 EOF
 ```
 
-4. Restart the service to apply the new configuration:
-
-```bash
-systemctl restart nrpe
-systemctl enable nrpe
-```
+> Si le nom de l'hôte à superviser ne correspond pas à la valeur de la variable `$HOSTNAME` il vous faudra personnaliser ce fichier.
 
 5. To monitor **systemd-journal**, run the following commands:
 
@@ -604,34 +643,34 @@ with the command corresponding to the operating system's package manager:
 <TabItem value="Alma / RHEL / Oracle Linux 8" label="Alma / RHEL / Oracle Linux 8">
 
 ```bash
-dnf install centreon-pack-operatingsystems-linux-nrpe4
+dnf install centreon-pack-operatingsystems-linux-telegraf-agent
 ```
 
 </TabItem>
 <TabItem value="Alma / RHEL / Oracle Linux 9" label="Alma / RHEL / Oracle Linux 9">
 
 ```bash
-dnf install centreon-pack-operatingsystems-linux-nrpe4
+dnf install centreon-pack-operatingsystems-linux-telegraf-agent
 ```
 
 </TabItem>
 <TabItem value="Debian 11" label="Debian 11">
 
 ```bash
-apt install centreon-pack-operatingsystems-linux-nrpe4
+apt install centreon-pack-operatingsystems-linux-telegraf-agent
 ```
 
 </TabItem>
 <TabItem value="CentOS 7" label="CentOS 7">
 
 ```bash
-yum install centreon-pack-operatingsystems-linux-nrpe4
+yum install centreon-pack-operatingsystems-linux-telegraf-agent
 ```
 
 </TabItem>
 </Tabs>
 
-2. Whatever the license type (*online* or *offline*), install the **Linux NRPE4** connector through
+2. Whatever the license type (*online* or *offline*), install the **Linux Telegraf-Agent** connector through
 the **Configuration > Monitoring Connector Manager** menu.
 
 ### Plugin
@@ -675,7 +714,7 @@ yum install nagios-plugins-nrpe
 
 1. Log into Centreon and add a new host through **Configuration > Hosts**.
 2. Fill in the **Name**, **Alias** & **IP Address/DNS** fields according to your resource's settings.
-3. Apply the **OS-Linux-NRPE4-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
+3. Apply the **OS-Linux-Telegraf-Agent-custom** template to the host. A list of macros appears. Macros allow you to define how the connector will connect to the resource, and to customize the connector's behavior.
 4. Fill in the macros you want. Some macros are mandatory.
 
 | Macro            | Description                                                                                          | Default value                  | Mandatory   |
@@ -1023,37 +1062,37 @@ The plugin brings the following modes:
 | Mode                                                                                                                                    | Linked service template                                                                                                     |
 |:----------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------------------------------------------------------------------------------------------------|
 | check-plugin [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/checkplugin.pm)]                 | Not used in this Monitoring Connector                                                                                       |
-| cmd-return [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/cmdreturn.pm)]                     | OS-Linux-Cmd-Generic-NRPE4-custom<br />OS-Linux-Is-File-Generic-NRPE4-custom<br />OS-Linux-Is-Not-File-Generic-NRPE4-custom |
-| connections [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/connections.pm)]                  | OS-Linux-Connections-Generic-NRPE4-custom                                                                                   |
-| cpu [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/cpu.pm)]                                  | OS-Linux-Cpu-NRPE4-custom                                                                                                   |
-| cpu-detailed [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/cpudetailed.pm)]                 | OS-Linux-Cpu-Detailed-NRPE4-custom                                                                                          |
+| cmd-return [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/cmdreturn.pm)]                     | OS-Linux-Cmd-Generic-Telegraf-Agent-custom<br />OS-Linux-Is-File-Generic-Telegraf-Agent-custom<br />OS-Linux-Is-Not-File-Generic-Telegraf-Agent-custom |
+| connections [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/connections.pm)]                  | OS-Linux-Connections-Generic-Telegraf-Agent-custom                                                                                   |
+| cpu [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/cpu.pm)]                                  | OS-Linux-Cpu-Telegraf-Agent-custom                                                                                                   |
+| cpu-detailed [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/cpudetailed.pm)]                 | OS-Linux-Cpu-Detailed-Telegraf-Agent-custom                                                                                          |
 | discovery-snmp [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/discoverysnmp.pm)]             | Not used in this Monitoring Connector                                                                                       |
 | discovery-snmpv3 [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/discoverysnmpv3.pm)]         | Not used in this Monitoring Connector                                                                                       |
-| diskio [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/diskio.pm)]                            | OS-Linux-Disk-IO-NRPE4-custom                                                                                               |
-| files-date [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/filesdate.pm)]                     | OS-Linux-File-Date-Generic-NRPE4-custom                                                                                     |
-| files-size [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/filessize.pm)]                     | OS-Linux-File-Size-Generic-NRPE4-custom                                                                                     |
-| inodes [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/inodes.pm)]                            | OS-Linux-Inodes-NRPE4-custom                                                                                                |
+| diskio [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/diskio.pm)]                            | OS-Linux-Disk-IO-Telegraf-Agent-custom                                                                                               |
+| files-date [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/filesdate.pm)]                     | OS-Linux-File-Date-Generic-Telegraf-Agent-custom                                                                                     |
+| files-size [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/filessize.pm)]                     | OS-Linux-File-Size-Generic-Telegraf-Agent-custom                                                                                     |
+| inodes [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/inodes.pm)]                            | OS-Linux-Inodes-Telegraf-Agent-custom                                                                                                |
 | list-interfaces [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/listinterfaces.pm)]           | Used for service discovery                                                                                                  |
 | list-partitions [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/listpartitions.pm)]           | Not used in this Monitoring Connector                                                                                       |
 | list-storages [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/liststorages.pm)]               | Used for service discovery                                                                                                  |
 | list-systemdservices [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/listsystemdservices.pm)] | Not used in this Monitoring Connector                                                                                       |
-| load [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/loadaverage.pm)]                         | OS-Linux-Load-NRPE4-custom                                                                                                  |
+| load [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/loadaverage.pm)]                         | OS-Linux-Load-Telegraf-Agent-custom                                                                                                  |
 | lvm [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/lvm.pm)]                                  | Not used in this Monitoring Connector                                                                                       |
-| memory [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/memory.pm)]                            | OS-Linux-Memory-NRPE4-custom                                                                                                |
+| memory [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/memory.pm)]                            | OS-Linux-Memory-Telegraf-Agent-custom                                                                                                |
 | mountpoint [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/mountpoint.pm)]                    | Not used in this Monitoring Connector                                                                                       |
-| ntp [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/ntp.pm)]                                  | OS-Linux-Ntp-NRPE4-custom                                                                                                   |
-| open-files [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/openfiles.pm)]                     | OS-Linux-Open-Files-NRPE4-custom                                                                                            |
-| packet-errors [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/packeterrors.pm)]               | OS-Linux-Packet-Errors-NRPE4-custom                                                                                         |
+| ntp [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/ntp.pm)]                                  | OS-Linux-Ntp-Telegraf-Agent-custom                                                                                                   |
+| open-files [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/openfiles.pm)]                     | OS-Linux-Open-Files-Telegraf-Agent-custom                                                                                            |
+| packet-errors [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/packeterrors.pm)]               | OS-Linux-Packet-Errors-Telegraf-Agent-custom                                                                                         |
 | paging [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/paging.pm)]                            | Not used in this Monitoring Connector                                                                                       |
-| pending-updates [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/pendingupdates.pm)]           | OS-Linux-Pending-Updates-NRPE4-custom                                                                                       |
-| process [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/process.pm)]                          | OS-Linux-Process-Generic-NRPE4-custom                                                                                       |
+| pending-updates [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/pendingupdates.pm)]           | OS-Linux-Pending-Updates-Telegraf-Agent-custom                                                                                       |
+| process [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/process.pm)]                          | OS-Linux-Process-Generic-Telegraf-Agent-custom                                                                                       |
 | quota [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/quota.pm)]                              | Not used in this Monitoring Connector                                                                                       |
-| storage [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/storage.pm)]                          | OS-Linux-Disks-NRPE4-custom                                                                                                 |
-| swap [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/swap.pm)]                                | OS-Linux-Swap-NRPE4-custom                                                                                                  |
-| systemd-journal [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/systemdjournal.pm)]           | OS-Linux-Systemd-Journal-NRPE4-custom                                                                                       |
-| systemd-sc-status [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/systemdscstatus.pm)]        | OS-Linux-Systemd-Sc-Status-NRPE4-custom                                                                                     |
-| traffic [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/traffic.pm)]                          | OS-Linux-Traffic-NRPE4-custom                                                                                               |
-| uptime [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/uptime.pm)]                            | OS-Linux-Uptime-NRPE4-custom                                                                                                |
+| storage [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/storage.pm)]                          | OS-Linux-Disks-Telegraf-Agent-custom                                                                                                 |
+| swap [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/swap.pm)]                                | OS-Linux-Swap-Telegraf-Agent-custom                                                                                                  |
+| systemd-journal [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/systemdjournal.pm)]           | OS-Linux-Systemd-Journal-Telegraf-Agent-custom                                                                                       |
+| systemd-sc-status [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/systemdscstatus.pm)]        | OS-Linux-Systemd-Sc-Status-Telegraf-Agent-custom                                                                                     |
+| traffic [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/traffic.pm)]                          | OS-Linux-Traffic-Telegraf-Agent-custom                                                                                               |
+| uptime [[code](https://github.com/centreon/centreon-plugins/blob/develop/src/os/linux/local/mode/uptime.pm)]                            | OS-Linux-Uptime-Telegraf-Agent-custom                                                                                                |
 
 ### Available options
 
